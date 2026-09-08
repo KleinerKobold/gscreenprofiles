@@ -1,0 +1,8 @@
+/* SPDX-License-Identifier: GPL-2.0-only */
+.gsp-profile-button { text-align: left; padding: 6px 10px; border-radius: 8px; min-width: 180px; }
+.gsp-profile-button:hover, .gsp-profile-button:focus { background-color: rgba(128,128,128,0.25); }
+.gsp-icon-button { padding: 6px; }
+.gsp-actions { spacing: 4px; }
+.gsp-dialog { width: 380px; }
+.gsp-dialog-title { font-weight: bold; font-size: 16pt; }
+.gsp-error { color: #ed6b6b; }

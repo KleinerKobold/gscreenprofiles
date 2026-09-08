@@ -1,0 +1,83 @@
+# SPDX-License-Identifier: GPL-2.0-only
+# gScreenProfiles translations
+msgid ""
+msgstr "Project-Id-Version: gScreenProfiles 1\nReport-Msgid-Bugs-To: \nPO-Revision-Date: 2026-09-08 00:00+0000\nLast-Translator: gScreenProfiles contributors\nLanguage-Team: de\nLanguage: de\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "Display profiles"
+msgstr "Bildschirmprofile"
+
+msgid "Saved profiles could not be read."
+msgstr "Die gespeicherten Profile konnten nicht gelesen werden."
+
+msgid "Profiles could not be saved."
+msgstr "Die Profile konnten nicht gespeichert werden."
+
+msgid "No profiles saved yet"
+msgstr "Noch keine Profile gespeichert"
+
+#. Keep named placeholders in braces unchanged; they may be reordered.
+msgid "Restore {name}"
+msgstr "{name} wiederherstellen"
+
+msgid "Rename"
+msgstr "Umbenennen"
+
+msgid "Delete"
+msgstr "Löschen"
+
+msgid "Profile actions"
+msgstr "Profilaktionen"
+
+msgid "Save current configuration…"
+msgstr "Aktuelle Einstellung speichern …"
+
+msgid "Rename profile"
+msgstr "Profil umbenennen"
+
+msgid "Save display profile"
+msgstr "Bildschirmprofil speichern"
+
+msgid "Profile name"
+msgstr "Profilname"
+
+msgid "Cancel"
+msgstr "Abbrechen"
+
+msgid "Save"
+msgstr "Speichern"
+
+msgid "No display is active."
+msgstr "Es ist kein Bildschirm aktiv."
+
+#. Keep named placeholders in braces unchanged; they may be reordered.
+msgid "The current mode of {connector} is unknown."
+msgstr "Aktueller Modus von {connector} ist unbekannt."
+
+msgid "The profile contains no active displays."
+msgstr "Das Profil enthält keine aktiven Bildschirme."
+
+#. Keep named placeholders in braces unchanged; they may be reordered.
+msgid "Display {display} ({connector}) is missing or ambiguous."
+msgstr "Bildschirm {display} ({connector}) fehlt oder ist nicht eindeutig."
+
+#. Keep named placeholders in braces unchanged; they may be reordered.
+msgid "Resolution, refresh rate or scaling for {display} is unavailable."
+msgstr "Auflösung, Frequenz oder Skalierung für {display} ist nicht verfügbar."
+
+#. Keep named placeholders in braces unchanged; they may be reordered.
+msgid "Underscanning for {display} is unavailable."
+msgstr "Underscanning für {display} ist nicht verfügbar."
+
+#. Keep named placeholders in braces unchanged; they may be reordered.
+msgid "Color mode for {display} is unavailable."
+msgstr "Farbmodus für {display} ist nicht verfügbar."
+
+msgid "The saved layout mode is not supported."
+msgstr "Der gespeicherte Layoutmodus wird nicht unterstützt."
+
+msgid "Enter a name with 1 to 80 characters."
+msgstr "Bitte einen Namen mit 1 bis 80 Zeichen eingeben."
+
+msgid "This profile name is already in use."
+msgstr "Dieser Profilname ist bereits vergeben."
+

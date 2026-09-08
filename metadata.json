@@ -1,0 +1,11 @@
+{
+  "uuid": "gscreenprofiles@kleinerkobold.github.io",
+  "name": "gScreenProfiles",
+  "description": "Save, restore and manage display profiles from the top bar.",
+  "shell-version": [
+    "50"
+  ],
+  "settings-schema": "org.gnome.shell.extensions.gscreenprofiles",
+  "gettext-domain": "gscreenprofiles",
+  "url": "https://github.com/KleinerKobold/gscreenprofiles"
+}

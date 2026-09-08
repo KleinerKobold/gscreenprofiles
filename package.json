@@ -1,0 +1,19 @@
+{
+  "name": "gscreenprofiles",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test tests/*.test.js && python3 scripts/check-translations.py",
+    "build": "sh scripts/build.sh",
+    "i18n:update": "xgettext --language=JavaScript --from-code=UTF-8 --keyword=_ --package-name=gScreenProfiles --package-version=1 --output=po/gscreenprofiles.pot extension.js profiles.js"
+  },
+  "license": "GPL-2.0-only",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/KleinerKobold/gscreenprofiles.git"
+  },
+  "homepage": "https://github.com/KleinerKobold/gscreenprofiles",
+  "bugs": {
+    "url": "https://github.com/KleinerKobold/gscreenprofiles/issues"
+  }
+}
