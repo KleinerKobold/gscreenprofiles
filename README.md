@@ -1,22 +1,24 @@
 # gScreenProfiles
 
-GNOME-Shell-50-Erweiterung mit einem Dualscreen-Symbol in der oberen Leiste.
+**English** · [Deutsch](README.de.md)
 
-[Quellcode](https://github.com/KleinerKobold/gscreenprofiles) · [Fehler melden](https://github.com/KleinerKobold/gscreenprofiles/issues)
+A GNOME Shell 50 extension with a dual-monitor icon in the top bar.
 
-## Bedienung
+[Source code](https://github.com/KleinerKobold/gscreenprofiles) · [Report an issue](https://github.com/KleinerKobold/gscreenprofiles/issues)
 
-- Symbol anklicken und „Aktuelle Einstellung speichern …“ wählen. Einen eindeutigen Namen eingeben.
-- Ein Profil anklicken, um dessen Bildschirmkonfiguration wiederherzustellen. GNOME fragt, ob die Änderung beibehalten werden soll; ohne Bestätigung wird sie zurückgenommen.
-- Die drei Punkte neben einem Profil blenden die Icons für Umbenennen und Löschen ein. Löschen entfernt sofort nur das gespeicherte Profil.
+## Usage
 
-Gespeichert werden aktive Bildschirme, Auflösung, Frequenz (inklusive fest/variabel), Skalierung, Rotation, Position, Hauptbildschirm, Spiegelung, Layoutmodus sowie Farbmodus und Underscanning, sofern verfügbar. Nicht im Profil aktive Bildschirme werden beim Anwenden deaktiviert. Fehlende oder nicht eindeutig erkennbare aktive Monitore und nicht mehr verfügbare Modi führen zu einer Fehlermeldung.
+- Click the icon and select “Save current configuration…”. Enter a unique name.
+- Click a profile to restore its display configuration. GNOME asks whether to keep the change; without confirmation, the change is reverted.
+- The three dots next to a profile reveal the rename and delete buttons. Deleting immediately removes only the saved profile.
 
-Profile bleiben über Abmeldungen hinweg in GSettings erhalten. Helligkeit, Nachtmodus, ICC-Profile und Fensterpositionen gehören nicht zum Profil.
+Profiles store active displays, resolution, refresh rate (including fixed/variable), scaling, rotation, position, primary display, mirroring, layout mode, and color mode and underscanning where available. Displays that are not active in the profile are disabled when it is applied. Missing or ambiguously identified active monitors and unavailable display modes result in an error message.
+
+Profiles persist across logouts in GSettings. Brightness, Night Light, ICC profiles, and window positions are not included in a profile.
 
 ## Installation
 
-Das Paket aus dem Quellcode bauen (benötigte Werkzeuge siehe unten):
+Build the package from source (see the required tools below):
 
 ```sh
 git clone https://github.com/KleinerKobold/gscreenprofiles.git
@@ -24,38 +26,38 @@ cd gscreenprofiles
 npm run build
 ```
 
-Anschließend im Projektverzeichnis:
+Then, from the project directory:
 
 ```sh
 gnome-extensions install --force dist/gscreenprofiles@kleinerkobold.github.io.shell-extension.zip
 ```
 
-Bei erstmaliger Installation gegebenenfalls abmelden und wieder anmelden, danach:
+For a first-time installation, log out and back in if necessary, then run:
 
 ```sh
 gnome-extensions enable gscreenprofiles@kleinerkobold.github.io
 ```
 
-Bei einem Wechsel von einer lokalen Vorgängerversion die zutreffende bisherige Erweiterung deaktivieren:
+When upgrading from an earlier local version, disable the corresponding old extension:
 
 ```sh
 gnome-extensions disable gwidgetscreen@oliver.local
 gnome-extensions disable gscreenprofiles@oliver.local
 ```
 
-Der bisherige GSettings-Speicherpfad bleibt erhalten, damit gespeicherte Bildschirmprofile weiter verfügbar sind.
+The original GSettings storage path is retained so that saved display profiles remain available.
 
-## Sprachen
+## Languages
 
-Die Oberfläche, Bedienhilfen und eigenen Fehlermeldungen folgen automatisch der GNOME-Systemsprache. Verfügbar sind Deutsch, Englisch, Französisch, Spanisch, Italienisch sowie europäisches und brasilianisches Portugiesisch. Für andere Sprachen dient Englisch als Rückfallsprache. Profilnamen werden unverändert übernommen; Systemmeldungen und der Bestätigungsdialog werden von GNOME übersetzt.
+The interface, accessibility labels, and the extension's own error messages automatically follow the GNOME system language. Available languages are German, English, French, Spanish, Italian, and European and Brazilian Portuguese. English is the fallback for other languages. Profile names are preserved unchanged; system messages and the confirmation dialog are translated by GNOME.
 
-Übersetzungen liegen als Gettext-Kataloge in `po/*.po`. Englisch ist die Quellsprache und benötigt keinen eigenen Katalog. `npm run build` prüft und kompiliert alle Kataloge und nimmt sie in das Installationspaket auf.
+Translations are stored as Gettext catalogs in `po/*.po`. English is the source language and does not need its own catalog. `npm run build` validates and compiles all catalogs and includes them in the installation package.
 
-Nach Änderungen an Oberflächentexten `npm run i18n:update` ausführen und bestehende Kataloge beispielsweise mit `msgmerge --update po/de.po po/gscreenprofiles.pot` aktualisieren. Für eine weitere Sprache die POT-Vorlage als `po/<Sprachcode>.po` übernehmen, den Sprachkopf ausfüllen und alle Einträge übersetzen. Benannte Platzhalter wie `{display}` müssen erhalten bleiben, dürfen aber umgestellt werden. `npm test` prüft Vollständigkeit und Platzhalter.
+After changing interface text, run `npm run i18n:update` and update existing catalogs, for example with `msgmerge --update po/de.po po/gscreenprofiles.pot`. To add another language, copy the POT template to `po/<language-code>.po`, fill in the language header, and translate all entries. Named placeholders such as `{display}` must be preserved but may be reordered. `npm test` checks completeness and placeholders.
 
-## Entwicklung und Prüfung
+## Development and testing
 
-Benötigt werden Node.js, Python 3, GNU Gettext (`xgettext`, `msgfmt`, `msgmerge`), GLib und die GNOME-Erweiterungswerkzeuge.
+Required tools: Node.js, Python 3, GNU Gettext (`xgettext`, `msgfmt`, `msgmerge`), GLib, and the GNOME extension tools.
 
 ```sh
 npm test
@@ -63,16 +65,16 @@ npm run build
 gjs -m tests/verify-live.js
 ```
 
-Der Live-Test benötigt Zugriff auf den GNOME-Sitzungsbus. Er liest die aktuelle Konfiguration, erstellt daraus ein Profil und lässt Mutter dieses mit Methode 0 prüfen, ohne die Anzeige zu verändern.
+The live test requires access to the GNOME session bus. It reads the current configuration, captures it as a profile, and asks Mutter to validate it using method 0 without changing the display configuration.
 
-Manueller Funktionstest nach Aktivierung: Profil speichern, in GNOMEs Anzeigeeinstellungen die Anordnung ändern, Profil wiederherstellen und bestätigen. Danach Umbenennen/Löschen über die drei Punkte sowie Abbrechen, doppelte Namen und einen abgezogenen Monitor prüfen. Diese interaktiven Schritte sind noch nicht automatisch getestet.
+Manual functional test after enabling the extension: save a profile, change the arrangement in GNOME's display settings, then restore the profile and confirm. Next, test renaming and deleting via the three dots, cancellation, duplicate names, and a disconnected monitor. These interactive steps are not yet covered by automated tests.
 
-## Schnittstellen
+## Interfaces and references
 
-- [GNOME-Mutter DisplayConfig](https://github.com/GNOME/mutter/blob/gnome-50/data/dbus-interfaces/org.gnome.Mutter.DisplayConfig.xml)
-- [GNOME-Shell-Erweiterungen erstellen](https://gjs.guide/extensions/development/creating.html)
+- [GNOME Mutter DisplayConfig](https://github.com/GNOME/mutter/blob/gnome-50/data/dbus-interfaces/org.gnome.Mutter.DisplayConfig.xml)
+- [Creating GNOME Shell extensions](https://gjs.guide/extensions/development/creating.html)
 - [GNOME Shell 50](https://gjs.guide/extensions/upgrading/gnome-shell-50.html)
 
-## Lizenz
+## License
 
-gScreenProfiles steht unter der GNU General Public License, ausschließlich Version 2 (`GPL-2.0-only`). Der vollständige Lizenztext liegt in [LICENSE](LICENSE).
+gScreenProfiles is licensed under the GNU General Public License, version 2 only (`GPL-2.0-only`). The full license text is available in [LICENSE](LICENSE).
