@@ -15,7 +15,7 @@ export default class ScreenProfiles extends Extension {
     enable() {
         this._settings = this.getSettings();
         this._display = new DisplayConfig(_);
-        this._dialogs = new Set();
+        this._dialogs = new Map();
         this._busy = false;
         this._button = new PanelMenu.Button(0.0, _('Display profiles'));
         this._button.add_child(new St.Icon({
@@ -110,8 +110,6 @@ export default class ScreenProfiles extends Extension {
     _nameDialog(profile = null) {
         this._button.menu.close();
         const dialog = new ModalDialog.ModalDialog({styleClass: 'gsp-dialog'});
-        this._dialogs.add(dialog);
-        dialog.connect('destroy', () => this._dialogs?.delete(dialog));
         dialog.contentLayout.add_child(new St.Label({
             text: profile ? _('Rename profile') : _('Save display profile'),
             style_class: 'gsp-dialog-title',
@@ -151,9 +149,21 @@ export default class ScreenProfiles extends Extension {
             {label: _('Cancel'), action: () => dialog.close(), key: Clutter.KEY_Escape},
             {label: _('Save'), action: submit, default: true},
         ]);
-        entry.clutter_text.connect('activate', submit);
+        const text = entry.clutter_text;
+        const activateId = text.connect('activate', submit);
+        const destroyId = dialog.connect('destroy', () => this._disconnectDialogSignals(dialog));
+        this._dialogs.set(dialog, {text, activateId, destroyId});
         dialog.setInitialKeyFocus(entry);
         dialog.open();
+    }
+
+    _disconnectDialogSignals(dialog) {
+        const signals = this._dialogs?.get(dialog);
+        if (!signals)
+            return;
+        signals.text.disconnect(signals.activateId);
+        dialog.disconnect(signals.destroyId);
+        this._dialogs.delete(dialog);
     }
 
     async _apply(profile) {
@@ -178,8 +188,10 @@ export default class ScreenProfiles extends Extension {
     disable() {
         this._display?.destroy();
         this._display = null;
-        for (const dialog of this._dialogs ?? [])
+        for (const dialog of this._dialogs?.keys() ?? []) {
+            this._disconnectDialogSignals(dialog);
             dialog.destroy();
+        }
         this._dialogs = null;
         if (this._changed)
             this._settings.disconnect(this._changed);
