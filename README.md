@@ -19,6 +19,11 @@ Profiles persist across logouts in GSettings. Brightness, Night Light, ICC profi
 
 ## Installation
 
+To build and install for the current user, run `./scripts/install.sh` from the
+project directory. The script replaces an existing local installation. Log out
+and back in to load the installed version, then enable the extension as shown
+below if needed.
+
 Build the package from source (see the required tools below):
 
 ```sh
@@ -40,6 +45,24 @@ gnome-extensions enable gscreenprofiles@kleinerkobold.github.io
 ```
 
 The original GSettings storage path is retained so that saved display profiles remain available.
+
+## Package for extensions.gnome.org
+
+Run from the project directory:
+
+```sh
+./scripts/build.sh
+```
+
+Alternatively, use `npm run build`. The script validates translations and
+GSettings schemas and packages the extension code, icons, license and compiled
+translations. It requires Python 3, GLib (`glib-compile-schemas`), GNU Gettext
+(`msgfmt`) and `gnome-extensions`.
+
+The resulting file is
+`dist/gscreenprofiles@kleinerkobold.github.io.shell-extension.zip`, ready for
+[manual upload to extensions.gnome.org](https://extensions.gnome.org/upload/).
+Running the script again replaces the existing ZIP.
 
 ## Languages
 

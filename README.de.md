@@ -19,6 +19,11 @@ Profile bleiben über Abmeldungen hinweg in GSettings erhalten. Helligkeit, Nach
 
 ## Installation
 
+Zum Bauen und Installieren für den aktuellen Benutzer im Projektverzeichnis
+`./scripts/install.sh` ausführen. Das Skript ersetzt eine bereits lokal installierte
+Version. Anschließend abmelden und wieder anmelden, um die installierte Version
+zu laden, und die Erweiterung bei Bedarf wie unten beschrieben aktivieren.
+
 Das Paket aus dem Quellcode bauen (benötigte Werkzeuge siehe unten):
 
 ```sh
@@ -47,6 +52,24 @@ gnome-extensions disable gscreenprofiles@oliver.local
 ```
 
 Der bisherige GSettings-Speicherpfad bleibt erhalten, damit gespeicherte Bildschirmprofile weiter verfügbar sind.
+
+## Paket für extensions.gnome.org
+
+Im Projektverzeichnis ausführen:
+
+```sh
+./scripts/build.sh
+```
+
+Alternativ funktioniert `npm run build`. Das Skript prüft die Übersetzungen und
+GSettings-Schemas und packt den Erweiterungscode, die Icons, die Lizenz und die
+kompilierten Übersetzungen. Benötigt werden Python 3, GLib
+(`glib-compile-schemas`), GNU Gettext (`msgfmt`) und `gnome-extensions`.
+
+Die fertige Datei liegt unter
+`dist/gscreenprofiles@kleinerkobold.github.io.shell-extension.zip` und kann auf
+[extensions.gnome.org hochgeladen werden](https://extensions.gnome.org/upload/).
+Ein erneuter Aufruf ersetzt das vorhandene ZIP. Der Upload erfolgt manuell.
 
 ## Sprachen
 
