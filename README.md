@@ -59,6 +59,12 @@ GSettings schemas and packages the extension code, icons, license and compiled
 translations. It requires Python 3, GLib (`glib-compile-schemas`), GNU Gettext
 (`msgfmt`) and `gnome-extensions`.
 
+It also requires `virtualenv`. On the first run, the script creates a local
+Python environment in `venv/`. Each build installs or updates `shexli` via pip
+(internet access required), then runs it against the finished ZIP. Installation
+failures or a nonzero analyzer exit code stop the build, including builds started
+by `./scripts/install.sh`. Git ignores `venv/`, and it is excluded from the ZIP.
+
 The resulting file is
 `dist/gscreenprofiles@kleinerkobold.github.io.shell-extension.zip`, ready for
 [manual upload to extensions.gnome.org](https://extensions.gnome.org/upload/).

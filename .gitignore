@@ -1,2 +1,3 @@
 dist/
+/venv/
 schemas/gschemas.compiled

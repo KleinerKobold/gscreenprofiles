@@ -6,7 +6,7 @@
     "50"
   ],
   "version": 1,
-  "version-name": "1.0.0",
+  "version-name": "1.0.1",
   "settings-schema": "org.gnome.shell.extensions.gscreenprofiles",
   "gettext-domain": "gscreenprofiles",
   "url": "https://github.com/KleinerKobold/gscreenprofiles"

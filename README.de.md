@@ -66,6 +66,13 @@ GSettings-Schemas und packt den Erweiterungscode, die Icons, die Lizenz und die
 kompilierten Übersetzungen. Benötigt werden Python 3, GLib
 (`glib-compile-schemas`), GNU Gettext (`msgfmt`) und `gnome-extensions`.
 
+Zusätzlich wird `virtualenv` benötigt. Das Skript erstellt beim ersten Aufruf
+die lokale Python-Umgebung `venv/`, installiert bzw. aktualisiert bei jedem Build
+`shexli` über pip (Internetzugriff erforderlich) und prüft damit das fertige ZIP.
+Ein Fehler beim Installieren oder ein Exit-Code ungleich null vom Analyzer bricht
+den Build ab. Dies gilt auch für den Build über `./scripts/install.sh`.
+`venv/` wird von Git ignoriert und nicht in das ZIP aufgenommen.
+
 Die fertige Datei liegt unter
 `dist/gscreenprofiles@kleinerkobold.github.io.shell-extension.zip` und kann auf
 [extensions.gnome.org hochgeladen werden](https://extensions.gnome.org/upload/).
