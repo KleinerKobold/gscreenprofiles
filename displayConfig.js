@@ -33,6 +33,7 @@ export class DisplayConfig {
             for (const output of group[5])
                 output[2] = wrap(output[2]);
         // Persistent application uses GNOME Shell's own confirmation/revert dialog.
+        // Method 1 applies for this session without confirmation or timed rollback.
         return this.call('ApplyMonitorsConfig', new GLib.Variant('(uua(iiduba(ssa{sv}))a{sv})',
             [config.serial, method, config.logical, wrap(config.properties)]));
     }

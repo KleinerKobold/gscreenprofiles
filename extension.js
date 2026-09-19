@@ -24,6 +24,9 @@ export default class ScreenProfiles extends Extension {
         }));
         Main.panel.addToStatusArea(this.uuid, this._button);
         this._changed = this._settings.connect('changed::profiles', () => this._render());
+        this._confirmationChanged = this._settings.connect('changed::confirm-changes', () => {
+            this._confirmationSwitch?.setToggleState(this._settings.get_boolean('confirm-changes'));
+        });
         this._render();
     }
 
@@ -56,6 +59,7 @@ export default class ScreenProfiles extends Extension {
     }
 
     _render() {
+        this._confirmationSwitch = null;
         this._button.menu.removeAll();
         this._button.menu.addMenuItem(new PopupMenu.PopupMenuItem(_('Display profiles'), {reactive: false}));
         let profiles;
@@ -93,6 +97,14 @@ export default class ScreenProfiles extends Extension {
         save.setSensitive(!this._busy);
         save.connect('activate', () => this._nameDialog());
         this._button.menu.addMenuItem(save);
+        this._button.menu.addMenuItem(new PopupMenu.PopupSeparatorMenuItem());
+        this._confirmationSwitch = new PopupMenu.PopupSwitchMenuItem(
+            _('Confirm changes'), this._settings.get_boolean('confirm-changes'));
+        this._confirmationSwitch.connect('toggled', (item, state) => {
+            this._settings.set_boolean('confirm-changes', state);
+            item.setToggleState(this._settings.get_boolean('confirm-changes'));
+        });
+        this._button.menu.addMenuItem(this._confirmationSwitch);
     }
 
     _nameDialog(profile = null) {
@@ -151,7 +163,7 @@ export default class ScreenProfiles extends Extension {
         const display = this._display;
         this._button.menu.close();
         this._render();
-        try { await display.apply(profile); }
+        try { await display.apply(profile, this._settings.get_boolean('confirm-changes') ? 2 : 1); }
         catch (error) {
             if (this._display === display)
                 this._error(error);
@@ -172,7 +184,11 @@ export default class ScreenProfiles extends Extension {
         if (this._changed)
             this._settings.disconnect(this._changed);
         this._changed = null;
+        if (this._confirmationChanged)
+            this._settings.disconnect(this._confirmationChanged);
+        this._confirmationChanged = null;
         this._button?.destroy();
+        this._confirmationSwitch = null;
         this._button = null;
         this._settings = null;
     }

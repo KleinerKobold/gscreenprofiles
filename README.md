@@ -10,6 +10,7 @@ A GNOME Shell 50 extension with a dual-monitor icon in the top bar.
 
 - Click the icon and select “Save current configuration…”. Enter a unique name.
 - Click a profile to restore its display configuration. GNOME asks whether to keep the change; without confirmation, the change is reverted.
+- Turn off “Confirm changes” in the menu (enabled by default) to apply profiles immediately without a dialog or automatic rollback. This display configuration applies for the current session and is not saved as the GNOME default for the next login. The switch setting and saved profiles persist.
 - The three dots next to a profile reveal the rename and delete buttons. Deleting immediately removes only the saved profile.
 
 Profiles store active displays, resolution, refresh rate (including fixed/variable), scaling, rotation, position, primary display, mirroring, layout mode, and color mode and underscanning where available. Displays that are not active in the profile are disabled when it is applied. Missing or ambiguously identified active monitors and unavailable display modes result in an error message.

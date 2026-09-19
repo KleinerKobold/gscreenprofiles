@@ -81,3 +81,6 @@ msgstr "Saisissez un nom de 1 à 80 caractères."
 msgid "This profile name is already in use."
 msgstr "Ce nom de profil est déjà utilisé."
 
+
+msgid "Confirm changes"
+msgstr "Confirmer les modifications"

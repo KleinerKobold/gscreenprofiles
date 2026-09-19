@@ -10,6 +10,7 @@ GNOME-Shell-50-Erweiterung mit einem Dualscreen-Symbol in der oberen Leiste.
 
 - Symbol anklicken und „Aktuelle Einstellung speichern …“ wählen. Einen eindeutigen Namen eingeben.
 - Ein Profil anklicken, um dessen Bildschirmkonfiguration wiederherzustellen. GNOME fragt, ob die Änderung beibehalten werden soll; ohne Bestätigung wird sie zurückgenommen.
+- Im Menü lässt sich „Änderungen bestätigen“ abschalten (standardmäßig eingeschaltet). Profile werden dann sofort ohne Dialog und ohne automatische Rücknahme angewendet. Diese Bildschirmkonfiguration gilt für die laufende Sitzung und wird nicht als GNOME-Standard für die nächste Anmeldung gespeichert. Die Schalterstellung und gespeicherten Profile bleiben erhalten.
 - Die drei Punkte neben einem Profil blenden die Icons für Umbenennen und Löschen ein. Löschen entfernt sofort nur das gespeicherte Profil.
 
 Gespeichert werden aktive Bildschirme, Auflösung, Frequenz (inklusive fest/variabel), Skalierung, Rotation, Position, Hauptbildschirm, Spiegelung, Layoutmodus sowie Farbmodus und Underscanning, sofern verfügbar. Nicht im Profil aktive Bildschirme werden beim Anwenden deaktiviert. Fehlende oder nicht eindeutig erkennbare aktive Monitore und nicht mehr verfügbare Modi führen zu einer Fehlermeldung.

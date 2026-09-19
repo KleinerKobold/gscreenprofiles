@@ -1,4 +1,3 @@
-# SPDX-License-Identifier: GPL-2.0-only
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the gScreenProfiles package.
@@ -9,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gScreenProfiles 1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-08 20:33+0200\n"
+"POT-Creation-Date: 2026-09-14 12:32+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,98 +17,102 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: extension.js:19 extension.js:59
+#: extension.js:20 extension.js:64
 msgid "Display profiles"
 msgstr ""
 
-#: extension.js:33
+#: extension.js:37
 msgid "Saved profiles could not be read."
 msgstr ""
 
-#: extension.js:39
+#: extension.js:43
 msgid "Profiles could not be saved."
 msgstr ""
 
-#: extension.js:67
+#: extension.js:72
 msgid "No profiles saved yet"
 msgstr ""
 
-#: extension.js:73
+#: extension.js:78
 msgid "Restore {name}"
 msgstr ""
 
-#: extension.js:79
+#: extension.js:84
 msgid "Rename"
 msgstr ""
 
-#: extension.js:80
+#: extension.js:85
 msgid "Delete"
 msgstr ""
 
-#: extension.js:85
+#: extension.js:90
 msgid "Profile actions"
 msgstr ""
 
-#: extension.js:91
+#: extension.js:96
 msgid "Save current configuration…"
 msgstr ""
 
-#: extension.js:103
+#: extension.js:102
+msgid "Confirm changes"
+msgstr ""
+
+#: extension.js:116
 msgid "Rename profile"
 msgstr ""
 
-#: extension.js:103
+#: extension.js:116
 msgid "Save display profile"
 msgstr ""
 
-#: extension.js:106
+#: extension.js:119
 msgid "Profile name"
 msgstr ""
 
-#: extension.js:138
+#: extension.js:151
 msgid "Cancel"
 msgstr ""
 
-#: extension.js:139
+#: extension.js:152
 msgid "Save"
 msgstr ""
 
-#: profiles.js:8
+#: profiles.js:9
 msgid "No display is active."
 msgstr ""
 
-#: profiles.js:17
+#: profiles.js:18
 msgid "The current mode of {connector} is unknown."
 msgstr ""
 
-#: profiles.js:35
+#: profiles.js:36
 msgid "The profile contains no active displays."
 msgstr ""
 
-#: profiles.js:42
+#: profiles.js:43
 msgid "Display {display} ({connector}) is missing or ambiguous."
 msgstr ""
 
-#: profiles.js:51
+#: profiles.js:52
 msgid "Resolution, refresh rate or scaling for {display} is unavailable."
 msgstr ""
 
-#: profiles.js:55
+#: profiles.js:56
 msgid "Underscanning for {display} is unavailable."
 msgstr ""
 
-#: profiles.js:62
+#: profiles.js:63
 msgid "Color mode for {display} is unavailable."
 msgstr ""
 
-#: profiles.js:73
+#: profiles.js:74
 msgid "The saved layout mode is not supported."
 msgstr ""
 
-#: profiles.js:80
+#: profiles.js:81
 msgid "Enter a name with 1 to 80 characters."
 msgstr ""
 
-#: profiles.js:82
+#: profiles.js:83
 msgid "This profile name is already in use."
 msgstr ""
