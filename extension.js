@@ -187,8 +187,9 @@ export default class ScreenProfiles extends Extension {
         if (this._confirmationChanged)
             this._settings.disconnect(this._confirmationChanged);
         this._confirmationChanged = null;
-        this._button?.destroy();
+        this._confirmationSwitch?.destroy();
         this._confirmationSwitch = null;
+        this._button?.destroy();
         this._button = null;
         this._settings = null;
     }
