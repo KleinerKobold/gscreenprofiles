@@ -39,13 +39,6 @@ For a first-time installation, log out and back in if necessary, then run:
 gnome-extensions enable gscreenprofiles@kleinerkobold.github.io
 ```
 
-When upgrading from an earlier local version, disable the corresponding old extension:
-
-```sh
-gnome-extensions disable gwidgetscreen@oliver.local
-gnome-extensions disable gscreenprofiles@oliver.local
-```
-
 The original GSettings storage path is retained so that saved display profiles remain available.
 
 ## Languages
