@@ -1,6 +1,6 @@
 <!-- SPDX-License-Identifier: GPL-2.0-only -->
 <schemalist>
-  <schema id="org.gnome.shell.extensions.gscreenprofiles" path="/org/gnome/shell/extensions/gwidgetscreen/">
+  <schema id="org.gnome.shell.extensions.gscreenprofiles" path="/org/gnome/shell/extensions/gscreenprofiles/">
     <key name="confirm-changes" type="b">
       <default>true</default>
       <summary>Bildschirmänderungen bestätigen</summary>

@@ -44,7 +44,12 @@ For a first-time installation, log out and back in if necessary, then run:
 gnome-extensions enable gscreenprofiles@kleinerkobold.github.io
 ```
 
-The original GSettings storage path is retained so that saved display profiles remain available.
+The GSettings storage path is `/org/gnome/shell/extensions/gscreenprofiles/`.
+To transfer saved profiles and settings from an earlier local version, run once before enabling the new version:
+
+```sh
+dconf dump /org/gnome/shell/extensions/gwidgetscreen/ | dconf load /org/gnome/shell/extensions/gscreenprofiles/
+```
 
 ## Package for extensions.gnome.org
 

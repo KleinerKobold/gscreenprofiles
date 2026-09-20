@@ -51,7 +51,12 @@ gnome-extensions disable gwidgetscreen@oliver.local
 gnome-extensions disable gscreenprofiles@oliver.local
 ```
 
-Der bisherige GSettings-Speicherpfad bleibt erhalten, damit gespeicherte Bildschirmprofile weiter verfügbar sind.
+Der GSettings-Speicherpfad lautet `/org/gnome/shell/extensions/gscreenprofiles/`.
+Um gespeicherte Profile und Einstellungen einer früheren lokalen Version zu übernehmen, vor dem Aktivieren der neuen Version einmalig ausführen:
+
+```sh
+dconf dump /org/gnome/shell/extensions/gwidgetscreen/ | dconf load /org/gnome/shell/extensions/gscreenprofiles/
+```
 
 ## Paket für extensions.gnome.org
 
