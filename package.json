@@ -3,7 +3,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "test": "node --test tests/*.test.js && python3 scripts/check-translations.py",
+    "test": "node --test tests/*.test.js && python3 -m unittest discover -s tests -p 'test_*.py' && python3 scripts/check-translations.py",
     "build": "sh scripts/build.sh",
     "i18n:update": "xgettext --language=JavaScript --from-code=UTF-8 --keyword=_ --package-name=gScreenProfiles --package-version=1 --output=po/gscreenprofiles.pot extension.js profiles.js"
   },

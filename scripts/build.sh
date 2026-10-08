@@ -29,6 +29,6 @@ uuid=$(python3 -c 'import json; print(json.load(open("metadata.json"))["uuid"])'
 archive="$(pwd)/dist/$uuid.shell-extension.zip"
 test -s "$archive"
 printf '\nChecking package with shexli...\n'
-venv/bin/shexli "$archive"
+venv/bin/python scripts/check-package.py "$archive"
 printf '\nPackage ready: %s\n' "$archive"
 printf 'Upload this ZIP at https://extensions.gnome.org/upload/\n'

@@ -2,7 +2,7 @@
 
 **English** · [Deutsch](README.de.md)
 
-A GNOME Shell 50 extension with a dual-monitor icon in the top bar.
+A GNOME Shell extension for versions 50 and 51 with a dual-monitor icon in the top bar.
 
 [Source code](https://github.com/KleinerKobold/gscreenprofiles) · [Report an issue](https://github.com/KleinerKobold/gscreenprofiles/issues)
 
@@ -102,6 +102,16 @@ Manual functional test after enabling the extension: save a profile, change the 
 - [GNOME Mutter DisplayConfig](https://github.com/GNOME/mutter/blob/gnome-50/data/dbus-interfaces/org.gnome.Mutter.DisplayConfig.xml)
 - [Creating GNOME Shell extensions](https://gjs.guide/extensions/development/creating.html)
 - [GNOME Shell 50](https://gjs.guide/extensions/upgrading/gnome-shell-50.html)
+- [GNOME Shell 51](https://gjs.guide/extensions/upgrading/gnome-shell-51.html)
+
+GNOME 51 support was verified with GNOME Shell/Mutter 51.0 and GJS 1.90.0:
+the live verification and enable, menu, save/rename dialogs, confirmation switch,
+and disable in a separate headless Shell session. The APIs used here require no
+code changes for GNOME 51. `shexli` 0.2.1 rejects every Shell version above 50.
+The build reads its JSON report using `scripts/check-package.py`: only the known
+`EGO-M-004` false positive from that analyzer version for exactly GNOME 50/51
+is exempted after checking the packaged metadata and is explicitly reported.
+All other errors stop the build and installation even if `shexli` exits with 0.
 
 ## License
 

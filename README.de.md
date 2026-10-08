@@ -2,7 +2,7 @@
 
 [English](README.md) · **Deutsch**
 
-GNOME-Shell-50-Erweiterung mit einem Dualscreen-Symbol in der oberen Leiste.
+GNOME-Shell-Erweiterung für Version 50 und 51 mit einem Dualscreen-Symbol in der oberen Leiste.
 
 [Quellcode](https://github.com/KleinerKobold/gscreenprofiles) · [Fehler melden](https://github.com/KleinerKobold/gscreenprofiles/issues)
 
@@ -103,6 +103,17 @@ gjs -m tests/verify-live.js
 
 Der Live-Test benötigt Zugriff auf den GNOME-Sitzungsbus. Er liest die aktuelle Konfiguration, erstellt daraus ein Profil und lässt Mutter dieses mit Methode 0 prüfen, ohne die Anzeige zu verändern.
 
+Die GNOME-51-Freigabe wurde mit GNOME Shell/Mutter 51.0 und GJS 1.90.0 geprüft:
+Live-Verifikation sowie Aktivieren, Menü, Speichern-/Umbenennen-Dialoge,
+Bestätigungsschalter und Deaktivieren in einer separaten Headless-Shell-Sitzung.
+Die verwendeten APIs benötigen für GNOME 51 keine Codeanpassung.
+`shexli` 0.2.1 lehnt in seiner Versionsprüfung alle Versionen über 50 ab.
+Der Build wertet deshalb den JSON-Bericht mit `scripts/check-package.py` aus:
+Nur der bekannte `EGO-M-004`-Fehlalarm dieser Analyzer-Version für genau
+GNOME 50/51 wird nach Prüfung der Paketmetadaten ausgenommen und klar benannt.
+Alle übrigen Fehler brechen Build und Installation ab, auch wenn `shexli`
+selbst Exit-Code 0 liefert.
+
 Manueller Funktionstest nach Aktivierung: Profil speichern, in GNOMEs Anzeigeeinstellungen die Anordnung ändern, Profil wiederherstellen und bestätigen. Danach Umbenennen/Löschen über die drei Punkte sowie Abbrechen, doppelte Namen und einen abgezogenen Monitor prüfen. Diese interaktiven Schritte sind noch nicht automatisch getestet.
 
 ## Schnittstellen
@@ -110,6 +121,7 @@ Manueller Funktionstest nach Aktivierung: Profil speichern, in GNOMEs Anzeigeein
 - [GNOME-Mutter DisplayConfig](https://github.com/GNOME/mutter/blob/gnome-50/data/dbus-interfaces/org.gnome.Mutter.DisplayConfig.xml)
 - [GNOME-Shell-Erweiterungen erstellen](https://gjs.guide/extensions/development/creating.html)
 - [GNOME Shell 50](https://gjs.guide/extensions/upgrading/gnome-shell-50.html)
+- [GNOME Shell 51](https://gjs.guide/extensions/upgrading/gnome-shell-51.html)
 
 ## Lizenz
 
